@@ -1,0 +1,33 @@
+<h1>Edit Client Info</h1>
+
+<%= form_for @client do |f| %>
+  <div class="form-group">
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.email_field :email, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :phone_number %>
+    <%= f.text_field :phone_number, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :pick_up_location %>
+    <%= f.text_field :pick_up_location, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :pick_up_date %>
+    <%= f.date_field :pick_up_date, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :pick_up_time %>
+    <%= f.time_field :pick_up_time, class: "form-control" %>
+  </div>
+  <%= f.submit :submit, class: "btn btn-default" %>
+<% end %>

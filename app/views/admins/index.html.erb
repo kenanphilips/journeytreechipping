@@ -1,0 +1,40 @@
+<div>
+  <%= form_tag(admin_path, method: :get, class: "form-inline search-form") do %>
+    <div class="form-group">
+      <%= text_field_tag :client, params[:client], class: "form-control" %>
+    </div>
+    <%= submit_tag 'Search', class: "btn btn-primary search-btn" %>
+  <% end %>
+
+  <table width="100%" data-toggle="table" class="table table-responsive">
+    <thead>
+      <tr>
+        <th data-sortable="true">Name</th>
+        <th data-sortable="true">Email</th>
+        <th data-sortable="true">Phone Number</th>
+        <th data-sortable="true">Pick Up Location</th>
+        <th data-sortable="true">Pick Up Date</th>
+        <th data-sortable="true">Pick Up Time</th>
+        <th data-sortable="false">Options</th>
+      </tr>
+    </thead>
+    <% @clients.each do |client| %>
+        <tr>
+          <td><%= client.first_name %> <%= client.last_name %></td>
+          <td><a href="mailto:<%= client.email %>"><%= client.email %></a></td>
+          <td><a href="tel:<%= client.phone_number %>"><%= client.phone_number %></a></td>
+          <td><a href="https://maps.google.com/?q=<%= client.pick_up_location %>&t=m" target="_blank"><%= client.pick_up_location %></a></td>
+          <td><%= client.pick_up_date.strftime("%B %d, %Y") %></td>
+          <td><%= client.pick_up_time.strftime("%l:%M %p") %></td>
+          <td class="table-options">
+            <%= link_to edit_client_path(client) do %>
+              <i class="ion-edit"></i>
+            <% end %>
+            <%= link_to client_path(client), method: :delete, data: {confirm: "Are you sure?"} do %>
+              <i class="ion-trash-b"></i>
+            <% end %>
+          </td>
+        </tr>
+    <% end %>
+  </table>
+</div>
