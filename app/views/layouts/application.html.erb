@@ -15,9 +15,14 @@
 
   <body class="container">
     <nav class="navbar navbar-expand-lg navbar-light">
-      <a href="<%= root_path %>" class="navbar-brand"><%= image_tag("journey-logo-black-white.svg") %></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+      <a href="<%= root_path %>" class="navbar-brand">
+        <%= image_tag("journey-logo-black-white.svg") %>
+        tree chipping
+      </a>
+      <button class="navbar-toggler hamburger" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <% if admin_signed_in? %>

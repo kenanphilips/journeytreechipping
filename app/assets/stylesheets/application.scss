@@ -62,29 +62,41 @@ p {
   margin-bottom: 3rem;
 }
 
-.navbar-brand img {
-  width: 100px;
-}
-
-.navbar-text span {
-  padding: 0 15px 0 0;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+.navbar-brand {
   font-size: 12px;
   font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #fff !important;
+
+  img {
+    width: 100px;
+  }
+}
+
+.navbar-text {
+  padding-top: 0.3rem;
+
+  span {
+    padding: 0 15px 0 0;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 12px;
+    font-weight: 700;
+  }
 }
 
 .logout {
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   font-weight: 700;
-  padding: 5px 15px;
+  padding: 5px 15px !important;
   border: 2px solid #fff;
   border-radius: 5px;
   color: #fff !important;
   font-size: 12px;
-  margin-top: 5px;
+  margin-top: 0.1rem;
 
   -webkit-transition: 0.2s all ease-in-out;
   -moz-transition: 0.2s all ease-in-out;
@@ -96,6 +108,49 @@ p {
     background: #fff;
     color: #222 !important;
   }
+}
+
+.navbar-light .navbar-toggler {
+  color: #fff !important;
+  border: none !important;
+  font-size: 1.5rem;
+  outline: none;
+  cursor: pointer;
+  padding: 0 !important;
+}
+
+.hamburger .line{
+  width: 20px;
+  height: 3px;
+  border-radius: 15px;
+  background-color: #ecf0f1;
+  display: block;
+  margin: 4px auto;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.hamburger.is-active .line:nth-child(2){
+  opacity: 0;
+}
+
+.hamburger.is-active .line:nth-child(1){
+  -webkit-transform: translateY(6px) rotate(45deg);
+  -ms-transform: translateY(6px) rotate(45deg);
+  -o-transform: translateY(6px) rotate(45deg);
+  transform: translateY(6px) rotate(45deg);
+}
+
+.hamburger.is-active .line:nth-child(3){
+  -webkit-transform: translateY(-8px) rotate(-45deg);
+  -ms-transform: translateY(-8px) rotate(-45deg);
+  -o-transform: translateY(-8px) rotate(-45deg);
+  transform: translateY(-8px) rotate(-45deg);
 }
 
 /*--------------------------- HOMEPAGE STYLING ---------------------------*/
@@ -170,5 +225,13 @@ form input {
     &:hover {
       text-decoration: none;
     }
+  }
+}
+
+/* --------------------------- RESPONSIVE STYLING ---------------------------*/
+
+@media only screen and (max-width: 768px) {
+  html {
+    height: auto;
   }
 }
