@@ -17,12 +17,49 @@
  @import "bootstrap";
  @import 'ionicons';
 
-body {
-  padding-bottom: 5rem;
+/* MISC STYLING */
+html {
+  width: 100%;
+  height: 100%;
 }
+
+body {
+  background-color: #08AEEA;
+  background-image: -webkit-linear-gradient(270deg, #08AEEA 0%, #2AF598 100%);
+  background-image: -moz-linear-gradient(270deg, #08AEEA 0%, #2AF598 100%);
+  background-image: -o-linear-gradient(270deg, #08AEEA 0%, #2AF598 100%);
+  background-image: linear-gradient(270deg, #08AEEA 0%, #2AF598 100%);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  font-family: "Museo Sans Rounded";
+  font-weight: 500;
+  color: #222;
+  font-size: 15px;
+}
+
+.btn {
+  cursor: pointer;
+}
+
+/* TYPOGRAPHY */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+p {
+  margin: 0;
+}
+
+/* NAVBAR */
 
 .navbar {
   padding: 0.5rem 0;
+  margin-bottom: 3rem;
 }
 
 .navbar-brand img {
@@ -30,9 +67,85 @@ body {
 }
 
 .navbar-text span {
-  padding: 0.5rem 1rem;
-  color: #000;
+  padding: 0 15px 0 0;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 12px;
+  font-weight: 700;
 }
+
+.logout {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  padding: 5px 15px;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  color: #fff !important;
+  font-size: 12px;
+  margin-top: 5px;
+
+  -webkit-transition: 0.2s all ease-in-out;
+  -moz-transition: 0.2s all ease-in-out;
+  -o-transition: 0.2s all ease-in-out;
+  -ms-transition: 0.2s all ease-in-out;
+  transition: 0.2s all ease-in-out;
+
+  &:hover {
+    background: #fff;
+    color: #222 !important;
+  }
+}
+
+/*--------------------------- HOMEPAGE STYLING ---------------------------*/
+
+/* FORM */
+.client-form , .homepage-content {
+  background: #fff;
+  border-radius: 5px;
+  padding: 30px;
+  -webkit-box-shadow:  0 3px 20px rgba(110, 123, 157, 0.5);
+  -moz-box-shadow:  0 3px 20px rgba(110, 123, 157, 0.5);
+  -ms-box-shadow:  0 3px 20px rgba(110, 123, 157, 0.5);
+  -o-box-shadow:  0 3px 20px rgba(110, 123, 157, 0.5);
+  box-shadow:  0 3px 20px rgba(110, 123, 157, 0.5);
+  margin-bottom: 30px;
+}
+
+form label {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+  font-size: 11px;
+}
+
+form input {
+  font-size: 13px !important;
+  color: #222 !important;
+}
+
+.homepage-form-btn {
+  margin-top: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+  color: #fff !important;
+  background-color: #2AF598;
+  border: 1px solid #2AF598 !important;
+
+  &:hover {
+    background-color: #08AEEA;
+    border: 1px solid #08AEEA !important;
+  }
+}
+
+.asterisk {
+  color: red;
+  font-weight: 500;
+}
+
+/* --------------------------- ADMIN STYLING ---------------------------*/
 
 /* ADMIN TABLE SEARCH */
 .search-form {

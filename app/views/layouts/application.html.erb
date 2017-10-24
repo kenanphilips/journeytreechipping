@@ -4,13 +4,18 @@
     <title>JourneyTreeChipping</title>
     <%= csrf_meta_tags %>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <script src="https://use.typekit.net/efd3ism.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
   </head>
 
   <body class="container">
     <nav class="navbar navbar-expand-lg navbar-light">
-      <a href="<%= root_path %>" class="navbar-brand"><%= image_tag("journey-logo-black.svg") %></a>
+      <a href="<%= root_path %>" class="navbar-brand"><%= image_tag("journey-logo-black-white.svg") %></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -18,18 +23,15 @@
         <% if admin_signed_in? %>
           <ul class="navbar-nav ml-auto">
             <li class="navbar-text">
-              <span>Hi <%= current_admin.email %>!</span>
+              <span>Hello <%= current_admin.email %></span>
             </li>
             <li class="navbar-item">
-              <%= link_to "Logout", destroy_admin_session_path, method: :delete, data: {confirm: "are you sure you want to log out?"}, class: "nav-link" %>
+              <%= link_to "Logout", destroy_admin_session_path, method: :delete, data: {confirm: "are you sure you want to log out?"}, class: "nav-link logout" %>
             </li>
           </ul>
         <% end %>
       </div>
     </nav>
-
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
 
     <%= yield %>
   </body>

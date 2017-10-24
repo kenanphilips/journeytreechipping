@@ -22,7 +22,7 @@
         <tr>
           <td><%= client.first_name %> <%= client.last_name %></td>
           <td><a href="mailto:<%= client.email %>"><%= client.email %></a></td>
-          <td><a href="tel:<%= client.phone_number %>"><%= client.phone_number %></a></td>
+          <td><a href="tel:<%= client.phone_number %>"><%= number_to_phone(client.phone_number) %></a></td>
           <td><a href="https://maps.google.com/?q=<%= client.pick_up_location %>&t=m" target="_blank"><%= client.pick_up_location %></a></td>
           <td><%= client.pick_up_date.strftime("%B %d, %Y") %></td>
           <td><%= client.pick_up_time.strftime("%l:%M %p") %></td>

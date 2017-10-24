@@ -1,39 +1,69 @@
-<% if @client.errors.any? %>
-  <ul>
-    <% @client.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
-<% end %>
+<div class="row">
+  <div class="col-md-6 col-sm-12">
+    <div class="homepage-content">
+      <h3>Help Our Journey Grads!</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+    <div class="homepage-content">
+      <h3>Questions or concerns?</h3>
+      <span>Emails us at <a href="#">info@journeytreechipping.com</a></span><br>
+      <span>Or call us at <a href="#">604-243-1235</a></span>
+    </div>
+  </div>
 
-<%= form_for @client do |f| %>
-  <div class="form-group">
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name, class: "form-control" %>
+  <div class="col-md-6 col-sm-12">
+    <div class="client-form">
+
+    <% if @client.errors.any? %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <ul>
+        <% @client.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <%= form_for @client do |f| %>
+      <div class="row form-group">
+        <div class="col">
+          <%= f.label :first_name, "First Name<span class='asterisk'>*</span>".html_safe %>
+          <%= f.text_field :first_name, class: "form-control" %>
+        </div>
+        <div class="col">
+          <%= f.label :last_name, "Last Name<span class='asterisk'>*</span>".html_safe %>
+          <%= f.text_field :last_name, class: "form-control" %>
+        </div>
+      </div>
+      <div class="row form-group">
+        <div class="col">
+          <%= f.label :email, "Email Address<span class='asterisk'>*</span>".html_safe %>
+          <%= f.email_field :email, class: "form-control" %>
+        </div>
+        <div class="col">
+          <%= f.label :phone_number, "Phone Number<span class='asterisk'>*</span>".html_safe %>
+          <%= f.text_field :phone_number, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :pick_up_location, "Pick Up Location<span class='asterisk'>*</span>".html_safe %>
+        <%= f.text_field :pick_up_location, class: "form-control", placeholder: "Please include city" %>
+      </div>
+      <div class="row form-group">
+        <div class="col">
+          <%= f.label :pick_up_date, "Pick Up Date<span class='asterisk'>*</span>".html_safe %>
+          <%= f.date_field :pick_up_date, class: "form-control" %>
+        </div>
+        <div class="col">
+          <%= f.label :pick_up_time, "Pick Up Time<span class='asterisk'>*</span>".html_safe %>
+          <%= f.time_field :pick_up_time, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.submit :submit, class: "btn btn-primary form-control homepage-form-btn", value: "Submit" %>
+      </div>
+    <% end %>
+
+    </div>
   </div>
-  <div class="form-group">
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :email %>
-    <%= f.email_field :email, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :phone_number %>
-    <%= f.text_field :phone_number, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :pick_up_location %>
-    <%= f.text_field :pick_up_location, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :pick_up_date %>
-    <%= f.date_field :pick_up_date, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :pick_up_time %>
-    <%= f.time_field :pick_up_time, class: "form-control" %>
-  </div>
-  <%= f.submit :submit, class: "btn btn-primary" %>
-<% end %>
+</div>
