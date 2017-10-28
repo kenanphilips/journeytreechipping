@@ -36,8 +36,6 @@ gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'font-ionicons-rails'
 gem 'devise', '~> 4.3'
 gem 'bootstrap-table-rails'
-gem 'figaro'
-
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
