@@ -7,6 +7,7 @@ class ClientsController < ApplicationController
   def create
     @client = Client.new client_params
     if @client.save
+      ClientMailer.submit_confirmation(@client).deliver_now
       redirect_to root_path, notice: "Thank you!"
     else
       flash[:alert] = "Uh oh, something went wrong... Please try again"

@@ -1,7 +1,7 @@
 <div>
   <%= form_tag(admin_path, method: :get, class: "form-inline search-form") do %>
     <div class="form-group">
-      <%= text_field_tag :client, params[:client], class: "form-control" %>
+      <%= text_field_tag :client, params[:client], class: "form-control", placeholder: "Search by name" %>
     </div>
     <%= submit_tag 'Search', class: "btn btn-primary search-btn" %>
   <% end %>
@@ -12,7 +12,7 @@
         <th data-sortable="true">Name</th>
         <th data-sortable="true">Email</th>
         <th data-sortable="true">Phone Number</th>
-        <th data-sortable="true">Pick Up Location</th>
+        <th data-sortable="true">Pick Up Address</th>
         <th data-sortable="true">Pick Up Date</th>
         <th data-sortable="true">Pick Up Time</th>
         <th data-sortable="false">Options</th>

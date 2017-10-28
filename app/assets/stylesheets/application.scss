@@ -24,15 +24,7 @@ html {
 }
 
 body {
-  background-color: #08AEEA;
-  background-image: -webkit-linear-gradient(270deg, #08AEEA 0%, #2AF598 100%);
-  background-image: -moz-linear-gradient(270deg, #08AEEA 0%, #2AF598 100%);
-  background-image: -o-linear-gradient(270deg, #08AEEA 0%, #2AF598 100%);
-  background-image: linear-gradient(270deg, #08AEEA 0%, #2AF598 100%);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-
+  background-color: #EFF3F6;
   font-family: "Museo Sans Rounded";
   font-weight: 500;
   color: #222;
@@ -80,48 +72,37 @@ p {
 }
 
 .navbar-text {
-  padding: 0 15px 0 0;
-  color: #fff !important;
+  padding: 0;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 12px;
   font-weight: 700;
-  margin-top: 0.5rem;
-}
 
-.logout {
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: 700;
-  padding: 5px 10px !important;
-  border: 2px solid #fff;
-  border-radius: 5px;
-  color: #fff !important;
-  font-size: 12px;
-  -webkit-transition: 0.2s all ease-in-out;
-  -moz-transition: 0.2s all ease-in-out;
-  -o-transition: 0.2s all ease-in-out;
-  -ms-transition: 0.2s all ease-in-out;
-  transition: 0.2s all ease-in-out;
-
-  &:hover {
-    background: #fff;
+  #navbarDropdown {
     color: #222 !important;
+    -webkit-transition: 0.2s all ease-in-out;
+    -moz-transition: 0.2s all ease-in-out;
+    -o-transition: 0.2s all ease-in-out;
+    -ms-transition: 0.2s all ease-in-out;
+    transition: 0.2s all ease-in-out;
+
+    &:hover {
+      opacity: 0.7;
+    }
   }
 }
 
-.edit-account {
+.logout, .edit-account, .admin-link {
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: 700;
-  color: #fff !important;
+  color: #222 !important;
   font-size: 12px;
   -webkit-transition: 0.2s all ease-in-out;
   -moz-transition: 0.2s all ease-in-out;
   -o-transition: 0.2s all ease-in-out;
   -ms-transition: 0.2s all ease-in-out;
   transition: 0.2s all ease-in-out;
-  padding-right: 1.4rem !important;
 
   &:hover {
     color: #222 !important;
@@ -129,7 +110,7 @@ p {
 }
 
 .navbar-light .navbar-toggler {
-  color: #fff !important;
+  color: #222 !important;
   border: none !important;
   font-size: 1.5rem;
   outline: none;
@@ -137,11 +118,25 @@ p {
   padding: 0 !important;
 }
 
+.dropdown-menu {
+  text-align: right;
+  border: none;
+  -webkit-box-shadow:  0 3px 20px rgba(110, 123, 157, 0.5);
+  -moz-box-shadow:  0 3px 20px rgba(110, 123, 157, 0.5);
+  -ms-box-shadow:  0 3px 20px rgba(110, 123, 157, 0.5);
+  -o-box-shadow:  0 3px 20px rgba(110, 123, 157, 0.5);
+  box-shadow:  0 3px 20px rgba(110, 123, 157, 0.5);
+}
+
+.mobile-nav {
+  display: none !important;
+}
+
 .hamburger .line{
   width: 20px;
   height: 3px;
   border-radius: 15px;
-  background-color: #ecf0f1;
+  background-color: #222;
   display: block;
   margin: 4px auto;
   -webkit-transition: all 0.2s ease-in-out;
@@ -227,10 +222,28 @@ form input {
 
   .search-btn {
     margin-left: 5px;
+    margin-top: 0;
+  }
+
+  input {
+    border: 1px solid #E2E3E5;
   }
 }
 
 /* ADMIN TABLE */
+.fixed-table-container {
+  background: #fff;
+  border: 1px solid #E2E3E5;
+}
+
+.bootstrap-table .table {
+  border: none !important;
+}
+
+.table th, .table td {
+  border-top: none !important;
+}
+
 .table-options {
   text-align: center;
 
@@ -244,6 +257,12 @@ form input {
       text-decoration: none;
     }
   }
+}
+
+.th-inner {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 12px;
 }
 
 /* ADMIN EDIT */
@@ -266,12 +285,12 @@ form input {
     height: auto;
   }
 
-  .logout, .edit-account {
+  .logout, .edit-account, .admin-link {
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: 700;
     border: none;
-    padding: 15px 0 !important;
+    padding: 15px !important;
     color: #222 !important;
     font-size: 12px;
     -webkit-transition: 0.2s all ease-in-out;
@@ -279,15 +298,18 @@ form input {
     -o-transition: 0.2s all ease-in-out;
     -ms-transition: 0.2s all ease-in-out;
     transition: 0.2s all ease-in-out;
-    border-top: 1px solid #eee;
 
     &:hover {
-      color: #222 !important;
+      background: #f7f7f7;
     }
   }
 
+  .logout {
+    border-radius: 0px 0px 5px 5px
+  }
+
   .navbar-text {
-    padding: 15px 0 !important;
+    padding: 15px !important;
     color: #222 !important;
     margin: 0 !important
   }
@@ -301,8 +323,25 @@ form input {
     -ms-box-shadow:  0 3px 20px rgba(110, 123, 157, 0.5);
     -o-box-shadow:  0 3px 20px rgba(110, 123, 157, 0.5);
     box-shadow:  0 3px 20px rgba(110, 123, 157, 0.5);
-    padding: 0 15px;
+    padding: 0;
     margin-top: 25px;
     width: 100%;
+  }
+
+  #navbarDropdown {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .dropdown-menu {
+    box-shadow:  none;
+  }
+
+  .desktop-nav {
+    display: none !important;
+  }
+
+  .mobile-nav {
+    display: flex !important;
   }
 }
