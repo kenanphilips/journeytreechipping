@@ -50,8 +50,8 @@ Rails.application.configure do
     domain:               'dry-cove-85849.herokuapp.com',
     user_name:            'journeygrad@gmail.com',
     password:             'Journey123',
-    authentication:       'login',
-    # enable_starttls_auto: true
+    authentication:       'plain',
+    enable_starttls_auto: true
   }
 
   # Print deprecation notices to the Rails logger.
