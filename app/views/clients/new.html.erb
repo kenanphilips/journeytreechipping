@@ -14,9 +14,10 @@
   <div class="col-md-6 col-sm-12">
     <div class="client-form">
 
+    <%= flash[:success] unless flash[:success].blank? %>
+    <%= flash[:error] unless flash[:error].blank? %>
+
     <% if @client.errors.any? %>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
       <ul>
         <% @client.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
