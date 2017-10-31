@@ -7,7 +7,7 @@ class ClientsController < ApplicationController
   def create
     @client = Client.new client_params
     if @client.save
-      flash[:success] = "Thanks!"
+      flash[:success] = "Thank you! We have recieved your submission!"
       redirect_to root_path
     else
       render :new
