@@ -15,11 +15,10 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require bootstrap-table
-//= require turbolinks
 //= require_tree .
 
-document.addEventListener("turbolinks:load", function() {
+$(document).ready(function() {
   $(".hamburger").click(function(){
     $(this).toggleClass("is-active");
   });
-})
+});
