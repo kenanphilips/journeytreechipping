@@ -18,8 +18,8 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).ready(function(){
+document.addEventListener("turbolinks:load", function() {
   $(".hamburger").click(function(){
     $(this).toggleClass("is-active");
   });
-});
+})

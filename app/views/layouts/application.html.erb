@@ -15,59 +15,7 @@
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
   </head>
 
-  <body class="container">
-    <nav class="navbar navbar-expand-lg navbar-light desktop-nav">
-      <a href="<%= root_path %>" class="navbar-brand">
-        <%= image_tag("journey-logo-black-white.svg") %>
-        <!-- tree chipping -->
-      </a>
-      <% if admin_signed_in? %>
-        <ul class="navbar-nav ml-auto">
-          <li class="navbar-text dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Hello <%= current_admin.email %>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <%= link_to "Edit Account", edit_admin_registration_path, class: "dropdown-item edit-account" %>
-              <%= link_to "Admin Panel", admin_path, class: "dropdown-item admin-link" %>
-              <div class="dropdown-divider"></div>
-              <%= link_to "Logout", destroy_admin_session_path, method: :delete, data: {confirm: "are you sure you want to log out?"}, class: "dropdown-item logout" %>
-            </div>
-          </li>
-        </ul>
-      <% end %>
-    </nav>
-
-    <nav class="navbar navbar-expand-lg navbar-light mobile-nav">
-      <a href="<%= root_path %>" class="navbar-brand">
-        <%= image_tag("journey-logo-black-white.svg") %>
-        <!-- tree chipping -->
-      </a>
-      <% if admin_signed_in? %>
-        <button class="navbar-toggler hamburger" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="line"></span>
-          <span class="line"></span>
-          <span class="line"></span>
-        </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ml-auto">
-          <li class="navbar-text">
-            Hello <%= current_admin.email %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Edit Account", edit_admin_registration_path, class: "nav-link edit-account" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Admin Panel", admin_path, class: "nav-link admin-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Logout", destroy_admin_session_path, method: :delete, data: {confirm: "are you sure you want to log out?"}, class: "nav-link logout" %>
-          </li>
-        </ul>
-      <% end %>
-      </div>
-    </nav>
-
+  <body>
     <%= yield %>
   </body>
 </html>
