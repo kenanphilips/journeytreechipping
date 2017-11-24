@@ -8,4 +8,8 @@ class Client < ApplicationRecord
   validates :city, presence: true
   validates :email, presence: true, format:  /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
 
+  scope :active, -> { where(active: true) }
+  scope :archived, -> { where(active: false) }
+
+
 end

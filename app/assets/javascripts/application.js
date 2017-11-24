@@ -17,8 +17,37 @@
 //= require bootstrap-table
 //= require_tree .
 
+
+
+function navOverlay() {
+  /* Open Menu */
+	$( ".open-close-btn" ).on('click touchstart', function(e) {
+		// prevent default anchor click
+		e.preventDefault();
+		$(".overlay").toggleClass("overlay-open");
+		$("#hamburger-icon").toggleClass("hamburger-open");
+	});
+}
+
+// function archive() {
+// 	$(".table-row").click(function(){
+// 	  $("table-row").removeClass("disabled");
+// 	  $(this).addClass("disabled");
+// 	});
+// }
+
+function respond() {
+  // Put all responsive functions here
+  navOverlay();
+  // archive();
+}
+
 $(document).ready(function() {
-  $(".hamburger").click(function(){
-    $(this).toggleClass("is-active");
-  });
+  respond();
+});
+
+$(window).load(function() {
+});
+
+$(window).scroll(function() {
 });

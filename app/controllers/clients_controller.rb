@@ -33,10 +33,17 @@ class ClientsController < ApplicationController
     redirect_to admin_path, notice: "Client deleted"
   end
 
+  def archived
+    @client = Client.find(params[:id])
+    @client.active = !@client.active
+    @client.save
+    redirect_to admin_path
+  end
+
   private
 
   def client_params
-    params.require(:client).permit(:first_name, :last_name, :email, :pick_up_location, :pick_up_date, :pick_up_time, :phone_number, :city)
+    params.require(:client).permit(:first_name, :last_name, :email, :pick_up_location, :pick_up_date, :pick_up_time, :phone_number, :city, :instructions, :active)
   end
 
 end

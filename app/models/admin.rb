@@ -3,4 +3,7 @@ class Admin < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
 
+  scope :active, -> { where(active: true) }
+  scope :archived, -> { where(active: false) }
+
 end

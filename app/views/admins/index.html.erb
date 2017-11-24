@@ -1,52 +1,26 @@
 <div class="container">
+
   <nav class="navbar navbar-expand-lg navbar-light desktop-nav">
     <a href="<%= root_path %>" class="navbar-brand">
       <%= image_tag("journey-logo-black-white.svg") %>
     </a>
     <% if admin_signed_in? %>
-      <ul class="navbar-nav ml-auto">
-        <li class="navbar-text dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Hello <%= current_admin.email %>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Edit Account", edit_admin_registration_path, class: "dropdown-item edit-account" %>
-            <%= link_to "Admin Panel", admin_path, class: "dropdown-item admin-link" %>
-            <div class="dropdown-divider"></div>
-            <%= link_to "Logout", destroy_admin_session_path, method: :delete, data: {confirm: "are you sure you want to log out?"}, class: "dropdown-item logout" %>
-          </div>
-        </li>
-      </ul>
+      <a id="hamburger-icon" href="#" class="open-close-btn home-page-btn"><span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </a>
+      <div id="myNav" class="overlay">
+        <div class="overlay-content">
+          <ul>
+            <li>Hello <%= current_admin.email %></li>
+            <li><%= link_to "Edit Account", edit_admin_registration_path %></li>
+            <li><%= link_to "Admin Panel", admin_path %></li>
+            <li><%= link_to "Logout", destroy_admin_session_path, method: :delete, data: {confirm: "are you sure you want to log out?"} %></li>
+          </ul>
+        </div>
+      </div>
     <% end %>
-  </nav>
-
-  <nav class="navbar navbar-expand-lg navbar-light mobile-nav">
-    <a href="<%= root_path %>" class="navbar-brand">
-      <%= image_tag("journey-logo-black-white.svg") %>
-    </a>
-    <% if admin_signed_in? %>
-      <button class="navbar-toggler hamburger" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="line"></span>
-        <span class="line"></span>
-        <span class="line"></span>
-      </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav ml-auto">
-        <li class="navbar-text">
-          <%= current_admin.email %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Edit Account", edit_admin_registration_path, class: "nav-link edit-account" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Admin Panel", admin_path, class: "nav-link admin-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Logout", destroy_admin_session_path, method: :delete, data: {confirm: "are you sure you want to log out?"}, class: "nav-link logout" %>
-        </li>
-      </ul>
-    <% end %>
-    </div>
   </nav>
 
   <div>
@@ -57,44 +31,42 @@
       <%= submit_tag 'Search', class: "btn btn-primary search-btn" %>
     <% end %>
 
-    <table width="100%" data-toggle="table" class="table">
+    <table id="table-current" width="100%" data-toggle="table" class="table">
+      <h3>Current Submissions</h3>
       <thead>
         <tr>
-          <th data-sortable="true" data-field="name">Name</th>
+          <th data-sortable="true">Name</th>
           <th data-sortable="true">Email</th>
-          <th data-sortable="true">Phone Number</th>
-          <th data-sortable="true">Pick Up Address</th>
+          <th data-sortable="true">Phone</th>
+          <th data-sortable="true">Address</th>
           <th data-sortable="true">City</th>
           <th data-sortable="true">Pick Up Date</th>
-          <th data-sortable="true">Pick Up Time</th>
+          <th data-sortable="true">Time</th>
+          <th data-sortable="true">Instructions</th>
           <th data-sortable="false">Options</th>
         </tr>
       </thead>
       <% @clients.each do |client| %>
-          <tr>
+          <tr class="table-row <%= 'archived' unless client.active? %>">
             <td><%= client.first_name %> <%= client.last_name %></td>
             <td><a href="mailto:<%= client.email %>"><%= client.email %></a></td>
             <td><a href="tel:<%= client.phone_number %>"><%= number_to_phone(client.phone_number) %></a></td>
             <td><a href="https://maps.google.com/?q=<%= client.pick_up_location %>&t=m" target="_blank"><%= client.pick_up_location %></a></td>
             <td><%= client.city %></td>
-            <td><%= client.pick_up_date.strftime("%B %d, %Y") %></td>
+            <td><%= client.pick_up_date %></td>
             <td><%= client.pick_up_time.strftime("%l:%M %p") %></td>
+            <td><%= client.instructions %></td>
             <td class="table-options">
-              <%= link_to edit_client_path(client) do %>
-                <i class="ion-edit"></i>
+              <%= link_to "Edit", edit_client_path(client) %>
+              <% if client.active? %>
+                <%= link_to "Archive", archived_client_path(client), :method => :put %>
+              <% else %>
+                <%= link_to "Unarchive", archived_client_path(client), :method => :put %>
               <% end %>
-              <%= link_to client_path(client), method: :delete, data: {confirm: "Are you sure?"} do %>
-                <i class="ion-trash-b"></i>
-              <% end %>
+              <%= link_to "Delete", client_path(client), method: :delete, data: {confirm: "Do you want to delete this row?"} %>
             </td>
           </tr>
       <% end %>
     </table>
   </div>
 </div>
-
-<!-- <script type="text/javascript">
-   if(window.location.href.substr(-2) !== "?r") {
-      window.location = window.location.href + "?r";
-    }
-</script> -->
