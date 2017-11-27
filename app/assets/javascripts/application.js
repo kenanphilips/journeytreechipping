@@ -29,17 +29,9 @@ function navOverlay() {
 	});
 }
 
-// function archive() {
-// 	$(".table-row").click(function(){
-// 	  $("table-row").removeClass("disabled");
-// 	  $(this).addClass("disabled");
-// 	});
-// }
-
 function respond() {
   // Put all responsive functions here
   navOverlay();
-  // archive();
 }
 
 $(document).ready(function() {

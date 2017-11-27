@@ -89,7 +89,9 @@
         <%= f.text_area :instructions, class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= f.submit :submit, class: "btn btn-primary form-control homepage-form-btn", value: "Submit" %>
+        <%= button_tag( :class => "btn btn-primary form-control homepage-form-btn") do %>
+          submit <i class="ion-paper-airplane"></i>
+        <% end %>
       </div>
     <% end %>
 

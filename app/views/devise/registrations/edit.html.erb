@@ -1,35 +1,68 @@
-<div class="edit-admin">
-  <h3>Edit <%= resource_name.to_s.humanize %></h3>
+<div class="column-left image">
+</div>
 
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-    <%= devise_error_messages! %>
+<div class="column-right">
+  <div class="header">
+    <!-- Desktop Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light desktop-nav">
+      <a href="<%= root_path %>" class="navbar-brand">
+        <%= image_tag("journey-logo-black-white.svg") %>
+      </a>
+      <% if admin_signed_in? %>
+        <a id="hamburger-icon" href="#" class="open-close-btn home-page-btn"><span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </a>
+        <div id="myNav" class="overlay">
+          <div class="overlay-content">
+            <ul>
+              <li>Hello <%= current_admin.email %></li>
+              <li><%= link_to "Edit Account", edit_admin_registration_path %></li>
+              <li><%= link_to "Admin Panel", admin_path %></li>
+              <li><%= link_to "Logout", destroy_admin_session_path, method: :delete, data: {confirm: "are you sure you want to log out?"} %></li>
+            </ul>
+          </div>
+        </div>
+      <% end %>
+    </nav>
+  </div>
 
-    <div class="field form-group">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, class: "form-control" %>
-    </div>
+  <div class="content">
+    <h3>Edit <%= resource_name.to_s.humanize %></h3>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= devise_error_messages! %>
+
+      <div class="field form-group">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, class: "form-control" %>
+      </div>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+
+      <div class="field form-group">
+        <%= f.label :password, "password <small>(leave blank if you don't want to change it)</small>".html_safe %>
+        <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "6 characters minimum" %>
+      </div>
+
+      <div class="field form-group">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+      </div>
+
+      <div class="field form-group">
+        <%= f.label :current_password, "current password <small>(to confirm your changes)</small>".html_safe %>
+        <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= button_tag( :class => "btn btn-primary form-control button") do %>
+          update
+        <% end %>
+      </div>
     <% end %>
-
-    <div class="field form-group">
-      <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-      <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "6 characters minimum" %>
-    </div>
-
-    <div class="field form-group">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
-    </div>
-
-    <div class="field form-group">
-      <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-      <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
-    </div>
-
-    <div class="actions">
-      <%= f.submit "Update", class: "btn btn-primary" %>
-    </div>
-  <% end %>
+  </div>
 </div>

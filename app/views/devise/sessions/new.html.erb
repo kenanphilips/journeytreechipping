@@ -1,26 +1,61 @@
-<h2>Log in</h2>
+<div class="column-left image">
+</div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+<div class="column-right">
+  <div class="header">
+    <!-- Desktop Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light desktop-nav">
+      <a href="<%= root_path %>" class="navbar-brand">
+        <%= image_tag("journey-logo-black-white.svg") %>
+      </a>
+      <% if admin_signed_in? %>
+        <a id="hamburger-icon" href="#" class="open-close-btn home-page-btn"><span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </a>
+        <div id="myNav" class="overlay">
+          <div class="overlay-content">
+            <ul>
+              <li>Hello <%= current_admin.email %></li>
+              <li><%= link_to "Edit Account", edit_admin_registration_path %></li>
+              <li><%= link_to "Admin Panel", admin_path %></li>
+              <li><%= link_to "Logout", destroy_admin_session_path, method: :delete, data: {confirm: "are you sure you want to log out?"} %></li>
+            </ul>
+          </div>
+        </div>
+      <% end %>
+    </nav>
   </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+  <div class="content">
+    <h3>Admin Log in</h3>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="field form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true, class: "form-control" %>
+      </div>
+
+      <div class="field form-group">
+        <%= f.label :password %>
+        <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="field form-group">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+      <% end %>
+
+      <div class="actions form-group">
+        <%= button_tag( :class => "btn btn-primary form-control button") do %>
+          log in
+        <% end %>
+      </div>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
   </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
