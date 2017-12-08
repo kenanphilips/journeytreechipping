@@ -6,10 +6,6 @@ class ClientNotifierMailer < ApplicationMailer
     @client = client
     mail( :to => @client.email,
     :subject => 'Thank you!' )
-  end
-
-  def admin_submit_email(client)
-    @client = client
     mail( :to => 'philipskenan@gmail.com',
     :subject => 'New Submission!')
   end
