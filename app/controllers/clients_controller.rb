@@ -9,6 +9,7 @@ class ClientsController < ApplicationController
     if @client.save
       flash[:success] = "Thank you! We have recieved your submission!"
       ClientNotifierMailer.send_submit_email(@client).deliver
+      AdminNotifierMailer.admin_submit_email.deliver
       redirect_to root_path
     else
       render :new
