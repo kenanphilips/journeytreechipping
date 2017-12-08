@@ -8,7 +8,7 @@ class ClientsController < ApplicationController
     @client = Client.new client_params
     if @client.save
       flash[:success] = "Thank you! We have recieved your submission!"
-      ClientNotifierMailer.send_submit_email(@client, @admin).deliver
+      ClientNotifierMailer.send_submit_email(@client).deliver
       redirect_to root_path
     else
       render :new
