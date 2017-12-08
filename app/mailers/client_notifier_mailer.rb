@@ -6,7 +6,7 @@ class ClientNotifierMailer < ApplicationMailer
     @client = client
     mail( :to => @client.email,
     :subject => 'Thank you!' )
-    mail( :to => 'philipskenan@gmail.com',
-    :subject => 'New Submission!')
+    # mail( :to => 'philipskenan@gmail.com',
+    # :subject => 'New Submission!')
   end
 end
