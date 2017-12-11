@@ -4,7 +4,7 @@ class ClientNotifierMailer < ApplicationMailer
   # send a signup email to the user, pass in the user object that   contains the user's email address
   def send_submit_email(client)
     @client = client
-    mail( :to => @client.email,
+    mail( :to => @client.email && 'philipskenan@gmail.com',
     :subject => 'Thank you!' )
     # mail( :to => 'philipskenan@gmail.com',
     # :subject => 'New Submission!')
