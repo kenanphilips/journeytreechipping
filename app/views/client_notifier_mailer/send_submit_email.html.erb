@@ -6,7 +6,7 @@
   <body>
     <h1>Thanks for submitting, <%= @client.first_name %>!</h1>
     <p>Thank you for submitting your information. We have recieved your submission!</p>
-    <p>Here is the info:</p>
+    <p>Here is your info:</p>
     <ul>
       <li><%= @client.first_name %> <%= @client.last_name %></li>
       <li><%= @client.email %></li>
@@ -14,7 +14,7 @@
       <li><%= @client.pick_up_location %></li>
       <li><%= @client.city %></li>
       <li><%= @client.pick_up_date %></li>
-      <li><%= @client.pick_up_time %></li>
+      <li><%= @client.pick_up_time.strftime("%l:%M %p") %></li>
     </ul>
   </body>
 </html>

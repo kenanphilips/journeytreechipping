@@ -1,29 +1,69 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field form-group">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, class: "form-control" %>
+<% if admin_signed_in? %>
+  <div class="column-left image">
   </div>
 
-  <div class="field form-group">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
-  </div>
+  <div class="column-right">
+    <div class="header">
+      <!-- Desktop Navigation -->
+      <nav class="navbar navbar-expand-lg navbar-light desktop-nav">
+        <a href="<%= root_path %>" class="navbar-brand">
+          <%= image_tag("journey-logo-black-white.svg") %>
+        </a>
+        <% if admin_signed_in? %>
+          <a id="hamburger-icon" href="#" class="open-close-btn home-page-btn"><span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </a>
+          <div id="myNav" class="overlay">
+            <div class="overlay-content">
+              <ul>
+                <li>Hello <%= current_admin.email %></li>
+                <li><%= link_to "Edit Account", edit_admin_registration_path %></li>
+                <li><%= link_to "Admin Panel", admin_path %></li>
+                <li><%= link_to "Logout", destroy_admin_session_path, method: :delete, data: {confirm: "are you sure you want to log out?"} %></li>
+              </ul>
+            </div>
+          </div>
+        <% end %>
+      </nav>
+    </div>
 
-  <div class="field form-group">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
-  </div>
+    <div class="content">
+      <h2>Admin Sign up</h2>
 
-  <div class="actions">
-    <%= f.submit "Sign up", class: "btn btn-primary" %>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+
+        <div class="field form-group">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, class: "form-control" %>
+        </div>
+
+        <div class="field form-group">
+          <%= f.label :password %>
+          <% if @minimum_password_length %>
+          <small>(<%= @minimum_password_length %> characters minimum)</small>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+        </div>
+
+        <div class="field form-group">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= button_tag( :class => "btn btn-primary form-control button") do %>
+            sign up
+          <% end %>
+        </div>
+      <% end %>
+      <%= render "devise/shared/links" %>
+    </div>
   </div>
+<% else %>
+  <script type="text/javascript">
+    window.location.href="/admins/sign_in"
+  </script>
 <% end %>
-
-<%= render "devise/shared/links" %>

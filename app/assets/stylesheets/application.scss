@@ -305,6 +305,7 @@ form input, form textarea {
 
 .homepage-form-btn {
   margin-top: 10px;
+  margin-bottom: 25px;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: 700;
@@ -495,7 +496,7 @@ td {
     margin-bottom: 0;
   }
 
-  .col-xs-12 {
+  .col-xs-12, #client_instructions {
     margin-bottom: 15px;
   }
 }
