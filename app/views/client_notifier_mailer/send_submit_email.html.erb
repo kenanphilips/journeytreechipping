@@ -4,17 +4,19 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Thanks for submitting, <%= @client.first_name %>!</h1>
-    <p>Thank you for submitting your information. We have recieved your submission!</p>
-    <p>Here is your info:</p>
+    <h1>Thanks for your Pick Up Request, <%= @client.first_name %>!</h1>
+    <p>Our team is cleaning the sap of their hands as we speak, and will get your tree on our pick up schedule for the date you requested.</p>
+    <p>Here is your submitted information:</p>
     <ul>
       <li><%= @client.first_name %> <%= @client.last_name %></li>
       <li><%= @client.email %></li>
       <li><%= @client.phone_number %></li>
-      <li><%= @client.pick_up_location %></li>
+      <li><a href="https://maps.google.com/?q=<%= @client.pick_up_location %>&t=m" target="_blank"><%= @client.pick_up_location %></a></li>
       <li><%= @client.city %></li>
       <li><%= @client.pick_up_date %></li>
       <li><%= @client.pick_up_time.strftime("%l:%M %p") %></li>
     </ul>
+    <p>If any of the information is incorrect, please let us know so we don't pick up the wrong tree!</p>
+    <p>Thanks so much.</p>
   </body>
 </html>

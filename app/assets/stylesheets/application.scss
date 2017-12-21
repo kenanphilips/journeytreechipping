@@ -23,7 +23,7 @@ html, body {
   font-family: "aktiv-grotesk", sans-serif;
   font-weight: 400;
   color: black;
-  font-size: 15px;
+  font-size: 13px;
   height: 100vh;
   margin: 0;
 }
@@ -51,6 +51,13 @@ h1, h2, h3, h4, h5, h6 {
 
 p, a {
   margin: 0;
+}
+
+.uppercase {
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: 11px;
 }
 
 /* NAVBAR */

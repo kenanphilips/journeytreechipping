@@ -1,0 +1,12 @@
+Thanks for your Pick Up Request, <%= @client.first_name %>!
+Our team is cleaning the sap of their hands as we speak, and will get your tree on our pick up schedule for the date you requested.
+Here is your submitted information:
+  - <%= @client.first_name %> <%= @client.last_name %>
+  - <%= @client.email %>
+  - <%= @client.phone_number %>
+  - <%= @client.pick_up_location %>
+  - <%= @client.city %></li>
+  - <%= @client.pick_up_date %>
+  - <%= @client.pick_up_time.strftime("%l:%M %p") %>
+If any of the information is incorrect, please let us know so we don't pick up the wrong tree!
+Thanks so much.
