@@ -11,8 +11,7 @@
       <li><%= @client.first_name %> <%= @client.last_name %></li>
       <li><%= @client.email %></li>
       <li><%= @client.phone_number %></li>
-      <li><a href="https://maps.google.com/?q=<%= @client.pick_up_location %>&t=m" target="_blank"><%= @client.pick_up_location %></a></li>
-      <li><%= @client.city %></li>
+      <li><a href="https://maps.google.com/?q=<%= @client.pick_up_location %>&t=m" target="_blank"><%= @client.pick_up_location %>, <%= @client.city %></a></li>
       <li><%= @client.pick_up_date %></li>
       <li><%= @client.pick_up_time.strftime("%l:%M %p") %></li>
     </ul>
