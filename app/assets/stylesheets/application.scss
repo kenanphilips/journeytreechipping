@@ -366,6 +366,20 @@ select.form-control {
   font-weight: 500;
 }
 
+.success {
+  background-color: #5CB85C;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+}
+
+.error {
+  background-color: #F95456;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+}
+
 /* --------------------------- ADMIN STYLING ---------------------------*/
 
 /* ADMIN TABLE SEARCH */
