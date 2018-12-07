@@ -32,7 +32,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'bootstrap'
 gem 'font-ionicons-rails'
 gem 'devise', '~> 4.3'
 gem 'bootstrap-table-rails'
