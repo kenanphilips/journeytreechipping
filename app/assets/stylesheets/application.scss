@@ -321,13 +321,14 @@ form input, form textarea {
   border: none !important;
   outline: none;
   cursor: pointer;
-  padding: 10px 0;
+  // padding: 10px 0;
   font-size: 12px;
   -webkit-transition: 0.2s all ease-in-out;
   -moz-transition: 0.2s all ease-in-out;
   -o-transition: 0.2s all ease-in-out;
   -ms-transition: 0.2s all ease-in-out;
   transition: 0.2s all ease-in-out;
+  height: 42px;
 
   i {
     -webkit-transition: 0.2s all ease-in-out;
